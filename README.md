@@ -1,2 +1,2 @@
 # simple-web-server
-Just a webserver showing an index.html
+Just a webserver, written in go, showing an index.html
