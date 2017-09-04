@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"net"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -26,6 +27,32 @@ func main() {
 	//serving static files
 	router.PathPrefix("/").Handler(wrapHandler(http.FileServer(http.Dir("./web/"))))
 	fmt.Printf("Starting... \n")
+
+	log.Println("I'll try listening on the following addresses:")
+	ifaces, errNet := net.Interfaces()
+	// handle err
+	if errNet != nil {
+		log.Fatal("net.Interfaces(): ", errNet)
+	} else {
+		for _, i := range ifaces {
+			addrs, err := i.Addrs()
+			// handle err
+			if err != nil {
+				log.Fatal("ifaces.Addrs(): ", err)
+			} else {
+				for _, addr := range addrs {
+					var ip net.IP
+					switch v := addr.(type) {
+					case *net.IPNet:
+						ip = v.IP
+					case *net.IPAddr:
+						ip = v.IP
+					}
+					log.Println("http://" + ip.String())
+				}
+			}
+		}
+	}
 
 	log.Fatal(http.ListenAndServe(":"+*port, router))
 }
