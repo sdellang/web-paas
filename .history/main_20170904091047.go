@@ -25,7 +25,7 @@ func main() {
 
 	//serving static files
 	router.PathPrefix("/").Handler(wrapHandler(http.FileServer(http.Dir("./web/"))))
-	fmt.Printf("Starting... \n")
+	fmt.Printf("Starting...")
 
 	log.Fatal(http.ListenAndServe(":"+*port, router))
 }
