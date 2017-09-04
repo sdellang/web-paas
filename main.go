@@ -16,7 +16,7 @@ type StatusRespWr struct {
 
 func main() {
 
-	port := flag.String("port", "8080", "HTTP port")
+	port := flag.String("port", "80", "HTTP port")
 
 	flag.Parse()
 
