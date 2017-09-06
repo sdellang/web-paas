@@ -1,2 +1,2 @@
 # web-paas
-This the real PaaS repository: a web service display a Pizza -> Pizza as a Service
+This the real PaaS: a web service that displays a pizza -> Pizza as a Service
