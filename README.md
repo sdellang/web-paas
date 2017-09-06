@@ -1,2 +1,2 @@
-# simple-web-server
-Just a webserver, written in go, showing an index.html
+# web-paas
+This the real PaaS repository: a web service display a Pizza -> Pizza as a Service
