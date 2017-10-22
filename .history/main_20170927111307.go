@@ -41,14 +41,8 @@ func main() {
 				log.Fatal("ifaces.Addrs(): ", err)
 			} else {
 				for _, addr := range addrs {
-					var ip net.IP
-					switch v := addr.(type) {
-					case *net.IPNet:
-						ip = v.IP
-					case *net.IPAddr:
-						ip = v.IP
-					}
-					log.Println("http://" + ip.String())
+					v := addr
+					log.Println("http://" + v.IP.String())
 				}
 			}
 		}

@@ -37,7 +37,7 @@ func main() {
 		for _, i := range ifaces {
 			addrs, err := i.Addrs()
 			// handle err
-			if err == nil {
+			if err != nil {
 				log.Fatal("ifaces.Addrs(): ", err)
 			} else {
 				for _, addr := range addrs {

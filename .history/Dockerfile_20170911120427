@@ -5,4 +5,4 @@ RUN mkdir -p /web
 COPY web /web
 RUN chmod -R 700 /web
 
-EXPOSE 8080
+EXPOSE 80
